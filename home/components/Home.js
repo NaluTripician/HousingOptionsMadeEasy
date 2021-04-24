@@ -9,3 +9,4 @@ function Home(props) {
     </View>
   );
 }
+export default Home;
