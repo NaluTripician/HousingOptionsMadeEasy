@@ -9,49 +9,36 @@ function FilterSelector(props) {
   const items = props.items.map((item) => {
     return {
       label: item.toString(),
-      value: item.toString(),
+      value: item,
       icon: () => <Icon name="flag" size={18} color="#900" />,
     };
   });
+  const category = props.category;
 
-  console.log("items is:", items);
+  console.log("items for filter for category", props.category, "is:", items);
 
   return (
-    <View>
-      <DropDownPicker
-        items={items}
-        // items={[
-        //   {
-        //     label: "USA",
-        //     value: "usa",
-        //     icon: () => <Icon name="flag" size={18} color="#900" />,
-        //     hidden: true,
-        //   },
-        //   {
-        //     label: "UK",
-        //     value: "uk",
-        //     icon: () => <Icon name="flag" size={18} color="#900" />,
-        //   },
-        //   {
-        //     label: "France",
-        //     value: "france",
-        //     icon: () => <Icon name="flag" size={18} color="#900" />,
-        //   },
-        // ]}
-        defaultValue={myDefault}
-        containerStyle={{ height: 40 }}
-        style={{ backgroundColor: "#fafafa" }}
-        itemStyle={{
-          justifyContent: "flex-start",
-        }}
-        dropDownStyle={{ backgroundColor: "#fafafa" }}
-        onChangeItem={(item) => {
-          props.setFilter(item.value);
-          setDefaultValue(item.value);
-          console.log(item.value);
-        }}
-      />
-    </View>
+    <DropDownPicker
+      items={items}
+      zIndex={props.zIndex}
+      defaultValue={myDefault}
+      placeholder={category}
+      containerStyle={{ height: 40 }}
+      style={{ backgroundColor: "#fafafa" }}
+      itemStyle={{
+        justifyContent: "flex-start",
+      }}
+      dropDownMaxHeight={200}
+      dropDownStyle={{ backgroundColor: "#fafafa" }}
+      onChangeItem={(item) => {
+        props.setFilter(item.value);
+        setDefaultValue(item.value);
+        console.log(
+          "item value in onchangeitem in filter selector is:",
+          item.value
+        );
+      }}
+    />
   );
 }
 export default FilterSelector;
