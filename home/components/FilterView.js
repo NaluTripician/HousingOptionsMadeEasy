@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
+import FilterSelector from "./FilterSelector";
 // import * as firebase from "firebase";
 import firebase from "@firebase/app";
 import "@firebase/firestore";
+import styles from "./FilterView.style.js";
 // import "firebase/firestore";
 
 const firebaseConfig = {
@@ -24,6 +26,8 @@ if (!firebase.apps.length) {
 const dbh = firebase.firestore();
 
 function FilterView(props) {
+  const [filters, setFilters] = useState({ bathrooms: 1 });
+  const [bathroomFilter, setBathroomFilter] = useState(1);
   const [houses, setHouses] = useState([]);
   const [housesQueried, setHousesQueried] = useState(false);
   var houseList = [];
@@ -72,11 +76,17 @@ function FilterView(props) {
   console.log("houses is:", houses);
   return (
     <View>
-      <Text>
-        {houses.map((house) => (
-          <Text>{houseList[0]}</Text>
+      <FilterSelector
+        items={[4, 3, 2, 1]}
+        category={"bathrooms"}
+        setFilter={setBathroomFilter}
+      />
+
+      {houses
+        .filter((house) => house["bathroom"] == { bathroomFilter })
+        .map((house) => (
+          <Text> {house["bathrooms"]}</Text>
         ))}
-      </Text>
     </View>
   );
 }
