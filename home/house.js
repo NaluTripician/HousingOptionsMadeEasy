@@ -21,6 +21,7 @@ class house = {
     outdoorSpace: 0,
     location: 0,
     partyVenue: 0,
+    kitchen: 0,
     numberOfReviews: 0
   },
   pictures = {
