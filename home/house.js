@@ -25,5 +25,6 @@ class house = {
   },
   pictures = {
     fileLocs: []
-  }
+  },
+  comments: []
 }

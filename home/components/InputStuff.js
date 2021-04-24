@@ -1,23 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Image, Text, Pressable, View } from 'react-native';
-import MyComp from './components/MyComp';
+import React from "react";
+import { Text, View } from "react-native";
+import App from "../App";
 import openImagePickerAsync from './imagePicker';
-import {styles} from './styles';
 
-export default function App() {
-  let [selectedImage, setSelectedImage] = React.useState(null);
-
-  if (selectedImage !== null) {
-    return (
-      <View style={styles.container}>
-        <Image source={{ uri: selectedImage.localUri }} style={styles.thumbnail} />
-        </View>
-    );
-  }
-
+function InputStuff(props) {
   return (
     <View style={styles.container}>
+      <Text style={styles.instructions}>
+        Add a review of your House.
+      </Text>
+
+
       <Text style={styles.instructions}>
         Upload a photo of your house.
       </Text>
@@ -35,3 +28,4 @@ export default function App() {
     </View>
   );
 }
+export default Home;
