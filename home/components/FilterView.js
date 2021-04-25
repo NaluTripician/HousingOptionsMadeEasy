@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView, Linking } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Linking,
+  Image,
+} from "react-native";
 import FilterSelector from "./FilterSelector";
 // import * as firebase from "firebase";
 import firebase from "firebase/app";
@@ -108,6 +115,13 @@ function FilterView(props) {
   );
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.centerImage}>
+        <Image
+          style={styles.logoImage}
+          source={require("../assets/HOME-logo.png")}
+        />
+      </View>
+
       <Text style={styles.inputLabel}>Number of Bathrooms</Text>
       <FilterSelector
         zIndex={5000}

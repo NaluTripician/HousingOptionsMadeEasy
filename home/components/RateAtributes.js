@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Rating } from "react-native-ratings";
 import { Text, View, Button, SafeAreaView, TextInput } from "react-native";
 import { styles } from "../styles";
-import * as firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/firestore";
 
 const firebaseConfig = {
@@ -24,7 +24,7 @@ if (!firebase.apps.length) {
 const dbh = firebase.firestore();
 
 class RateAtributes extends Component {
-  constructor(name, props) {
+  constructor(name, setDisplayModal, props) {
     super(props);
     this.state = {
       overall: 0,
@@ -35,6 +35,7 @@ class RateAtributes extends Component {
       comment: "",
     };
     this.name = name;
+    // this.setDisplayModal = this.setDisplayModal.bind(this);
   }
   overallR(rating) {
     console.log("over");
@@ -127,6 +128,7 @@ class RateAtributes extends Component {
           newArr.push(comm);
           console.log(newArr);
           house.set({ comments: newArr }, { merge: true });
+          this.setDisplayModal(false);
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
@@ -199,6 +201,7 @@ class RateAtributes extends Component {
             onStartRating={(rating) => this.partyVenueR(rating)}
             ratingBackgroundColor="#ECEFF2"
           />
+          <Text style={styles.instructions}>Any comments?</Text>
           <TextInput
             style={styles.input}
             placeholder="Enter additional comments here"

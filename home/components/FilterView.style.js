@@ -39,6 +39,7 @@ export default StyleSheet.create({
     textDecorationLine: "underline",
   },
   modalStyles: {
+    width: "100%",
     paddingHorizontal: 10,
     paddingTop: 40,
     backgroundColor: "white",
@@ -56,6 +57,7 @@ export default StyleSheet.create({
     flex: 1,
     minWidth: "30%",
     paddingHorizontal: 5,
+    paddingVertical: 10,
   },
   fieldsContainer: {
     flexDirection: "row",
@@ -64,5 +66,21 @@ export default StyleSheet.create({
   rating: {
     paddingHorizontal: 0,
     marginHorizontal: 0,
+  },
+  logoImage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+  },
+  centerImage: {
+    // width: 50,
+    height: 100,
+    minWidth: "70%",
+    // minHeight: "10%",
+
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 15,
   },
 });
