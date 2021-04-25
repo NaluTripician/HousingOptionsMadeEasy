@@ -64,8 +64,8 @@ export default StyleSheet.create({
     flexWrap: "wrap",
   },
   rating: {
-    paddingHorizontal: 0,
-    marginHorizontal: 0,
+    paddingLeft: 0,
+    marginLeft: -30,
   },
   logoImage: {
     flex: 1,
@@ -82,5 +82,8 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 15,
+  },
+  editIcon: {
+    alignItems: "flex-end",
   },
 });

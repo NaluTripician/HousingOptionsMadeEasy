@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { Text, View } from "react-native";
 import FilterView from "./FilterView";
 import FilterSelector from "./FilterSelector";

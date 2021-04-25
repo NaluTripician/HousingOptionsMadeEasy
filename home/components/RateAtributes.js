@@ -128,7 +128,6 @@ class RateAtributes extends Component {
           newArr.push(comm);
           console.log(newArr);
           house.set({ comments: newArr }, { merge: true });
-          this.setDisplayModal(false);
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");

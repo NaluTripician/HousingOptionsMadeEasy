@@ -40,7 +40,11 @@ function ValueField(props) {
   } else {
     return (
       <View>
-        <Text style={styles.fieldTitle}>{myKey}</Text>
+        <Text style={styles.fieldTitle}>
+          {myKey
+            .replace("multipleUnits", "number of units")
+            .replace("numberOfReviews", "number of reviews")}
+        </Text>
         <Text>{props.house[myKey]}</Text>
       </View>
     );

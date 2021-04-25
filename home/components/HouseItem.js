@@ -33,7 +33,16 @@ function HouseItem(props) {
         }}
       >
         <Card containerStyle={styles.houseCard}>
+          <View styles={styles.editIcon}>
+            <Icon
+              styles={styles.editIcon}
+              name="edit"
+              color="#517fa4"
+              size={20}
+            />
+          </View>
           <Card.Title style={styles.cardTitle}>{house["name"]}</Card.Title>
+
           <View style={styles.fieldsContainer}>
             {Object.keys(house)
               .filter((key) => {
