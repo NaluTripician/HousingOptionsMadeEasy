@@ -24,7 +24,13 @@ function FilterSelector(props) {
       defaultValue={myDefault}
       placeholder={category}
       containerStyle={{ height: 40 }}
-      style={{ backgroundColor: "#fafafa" }}
+      style={{
+        backgroundColor: "#fafafa",
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+      }}
       itemStyle={{
         justifyContent: "flex-start",
       }}

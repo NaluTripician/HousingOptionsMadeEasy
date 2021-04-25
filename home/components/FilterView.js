@@ -33,11 +33,21 @@ function FilterView(props) {
   const [quietFilter, setQuietFilter] = useState(noFilter);
   const [streetFilter, setStreetFilter] = useState(noFilter);
   const [overallFilter, setOverallFilter] = useState(noFilter);
+  const [occupancyFilter, setOccupancyFilter] = useState(noFilter);
   const [houses, setHouses] = useState([]);
   const [housesQueried, setHousesQueried] = useState(false);
-  const filters = ["bathrooms", "quiet", "street", "overall"];
+  const filters = ["bathrooms", "quiet", "street", "overall", "occupancy"];
   var houseList = [];
-  var streets = ["Home", "Fountain", "Church"];
+  var streets = [
+    "Home",
+    "Fountain",
+    "Church",
+    "Warren",
+    "Pine",
+    "Lawn",
+    "Brainerd",
+    "Cross",
+  ];
   console.log("houses queried is:", housesQueried);
   console.log("bathroomn filter is:", typeof bathroomsFilter);
 
@@ -58,30 +68,6 @@ function FilterView(props) {
         setHousesQueried(true);
       });
   }, [housesQueried]);
-
-  //   async function getHouses() {
-  //     if (housesQueried == false) {
-  //       await dbh
-  //         .collection("houses")
-  //         .get()
-  //         .then(async (querySnapshot) => {
-  //           await querySnapshot.forEach((doc) => {
-  //             console.log("running foreach");
-  //             houseList.push(doc.data());
-  //             // console.log(doc.data());
-  //           });
-  //           console.log("houseList in then is:", houseList);
-  //           // setHouses(houseList);
-  //           // setHousesQueried(true);
-  //         });
-  //     }
-
-  //     console.log("houseList is:", houseList );
-  //     setHouses(houseList);
-  //     setHousesQueried(true);
-  //   }
-
-  //   getHouses();
 
   function greaterFilter(filter, house) {
     if ((filter == "bathrooms") | (filter == "overall")) {
@@ -104,7 +90,7 @@ function FilterView(props) {
   );
   return (
     <ScrollView style={styles.container}>
-      <Text>Bathrooms!</Text>
+      <Text style={styles.inputLabel}>Number of Bathrooms</Text>
       <FilterSelector
         zIndex={5000}
         items={[noFilter, 3, 2, 1]}
@@ -112,7 +98,7 @@ function FilterView(props) {
         category={"bathrooms"}
         setFilter={setBathroomsFilter}
       />
-      <Text>Quiet Street?</Text>
+      <Text style={styles.inputLabel}>Quiet or Loud Street</Text>
 
       <FilterSelector
         zIndex={4000}
@@ -121,7 +107,7 @@ function FilterView(props) {
         category={"quiet"}
         setFilter={setQuietFilter}
       />
-      <Text>Street Choice</Text>
+      <Text style={styles.inputLabel}>Street</Text>
 
       <FilterSelector
         zIndex={3000}
@@ -130,7 +116,7 @@ function FilterView(props) {
         category={"street"}
         setFilter={setStreetFilter}
       />
-      <Text>Overall Rating</Text>
+      <Text style={styles.inputLabel}>Overall Rating</Text>
 
       <FilterSelector
         zIndex={2000}
@@ -139,7 +125,21 @@ function FilterView(props) {
         category={"overall"}
         setFilter={setOverallFilter}
       />
-      <Text style={styles.titleText}>Houses</Text>
+      <Text style={styles.inputLabel}>Occupancy</Text>
+      <FilterSelector
+        zIndex={1000}
+        items={[noFilter, 6, 5, 4, 3, 2]}
+        icon={"person"}
+        category={"occupancy"}
+        setFilter={setOccupancyFilter}
+      />
+      <View
+        style={{
+          paddingTop: 30,
+          borderBottomColor: "gray",
+          borderBottomWidth: 1,
+        }}
+      />
 
       {houses
         .filter((house) => {
@@ -167,7 +167,6 @@ function FilterView(props) {
         .map((house) => (
           <HouseItem house={house} />
         ))}
-      <Text>TESTING</Text>
     </ScrollView>
   );
 }

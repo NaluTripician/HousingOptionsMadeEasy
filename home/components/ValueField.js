@@ -7,7 +7,7 @@ import { Rating } from "react-native-ratings";
 // import "firebase/firestore";
 
 function ValueField(props) {
-  ratingsKeys = [
+  var ratingsKeys = [
     "location",
     "kitchen",
     "outdoorSpace",
