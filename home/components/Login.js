@@ -56,27 +56,27 @@ function emailLogin (email, password, setLoggedInStatus) {
 export default function Login(props){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [page, setPage] = useState("main")
+    const [rend, setRend] = useState("main")
 
-    if(page === 'main') {
+    if(rend === 'main') {
         return (
             <SafeAreaView>
             <View style={styles.container}>
                 <Image style={styles.image} source={require("../assets/home_logo.png")} />
                 <StatusBar style="auto" />
 
-                <Pressable style={styles.loginBtn} onPress={page => setPage("login")}>
+                <Pressable style={styles.loginBtn} onPress={rend => setRend("login")}>
                     <Text style={styles.loginText}>LOGIN</Text>
                 </Pressable>
 
-                <Pressable style={styles.loginBtn} onPress={page => setPage("signup")}>
+                <Pressable style={styles.loginBtn} onPress={rend => setRend("signup")}>
                     <Text style={styles.loginText}>SIGN UP</Text>
                 </Pressable>
 
             </View>
             </SafeAreaView>
         );
-    } else if(page === 'login') {
+    } else if(rend === 'login') {
         return (
             <SafeAreaView>
             <View style={styles.container}>
@@ -101,12 +101,12 @@ export default function Login(props){
                 />
                 </View>
 
-                <TouchableOpacity>
-                    <Text style={styles.forgot_button}>Forgot Password?</Text>
-                </TouchableOpacity>
-
                 <Pressable style={styles.loginBtn} onPress={() => emailLogin(email, password, props.setLoggedInStatus)}>
                     <Text style={styles.loginText}>LOGIN</Text>
+                </Pressable>
+
+                <Pressable style={styles.backBtn} onPress={rend => setRend('main')}>
+                    <Image style={styles.backBtn} source={require("../assets/back_button.png")}/>
                 </Pressable>
             </View>
             </SafeAreaView>
@@ -115,7 +115,7 @@ export default function Login(props){
         return (
             <SafeAreaView>
             <View style={styles.container}>
-                <Image style={styles.image} source={require("../assets/icon.png")} />
+                <Image style={styles.image} source={require("../assets/home_logo.png")} />
                 <StatusBar style="auto" />
                 <View style={styles.inputView}>
                 <TextInput
@@ -138,6 +138,10 @@ export default function Login(props){
 
                 <Pressable style={styles.loginBtn} onPress={() => emailSignUp(email, password, props.setLoggedInStatus)}>
                     <Text style={styles.loginText}>SIGN UP</Text>
+                </Pressable>
+
+                <Pressable style={styles.backBtn} onPress={rend => setRend('main')}>
+                    <Image style={styles.backBtn} source={require("../assets/back_button.png")}/>
                 </Pressable>
             </View>
             </SafeAreaView>
@@ -188,5 +192,18 @@ const styles = StyleSheet.create({
        justifyContent:"center",
        marginTop:20,
        backgroundColor:"#D72020",
+   },
+
+    backBtn:
+    {
+        marginTop: 30,
+        marginLeft: 5,
+        width: "25%",
+        height: "25%",
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0
     }
 });
