@@ -123,11 +123,13 @@ class RateAtributes extends Component {
             },
             { merge: true }
           );
-          console.log(oldRatings["comments"]);
-          var newArr = oldRatings["comments"];
-          newArr.push(comm);
-          console.log(newArr);
-          house.set({ comments: newArr }, { merge: true });
+          if(comm != ""){
+            console.log(oldRatings["comments"]);
+            var newArr = oldRatings["comments"];
+            newArr.push(comm);
+            console.log(newArr);
+            house.set({ comments: newArr }, { merge: true });
+          }
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
