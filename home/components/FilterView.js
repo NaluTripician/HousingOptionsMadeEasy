@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Linking } from "react-native";
 import FilterSelector from "./FilterSelector";
 // import * as firebase from "firebase";
 import firebase from "firebase/app";
@@ -34,9 +34,20 @@ function FilterView(props) {
   const [streetFilter, setStreetFilter] = useState(noFilter);
   const [overallFilter, setOverallFilter] = useState(noFilter);
   const [occupancyFilter, setOccupancyFilter] = useState(noFilter);
+  const [multipleUnitsFilter, setMultipleUnitsFilter] = useState(noFilter);
+  const [fullBedsFilter, setFullBedsFilter] = useState(noFilter);
+
   const [houses, setHouses] = useState([]);
   const [housesQueried, setHousesQueried] = useState(false);
-  const filters = ["bathrooms", "quiet", "street", "overall", "occupancy"];
+  const filters = [
+    "bathrooms",
+    "quiet",
+    "street",
+    "overall",
+    "occupancy",
+    "multipleUnits",
+    "fullBeds",
+  ];
   var houseList = [];
   var streets = [
     "Home",
@@ -47,6 +58,9 @@ function FilterView(props) {
     "Lawn",
     "Brainerd",
     "Cross",
+    "College",
+    "Sesame",
+    "Miles",
   ];
   console.log("houses queried is:", housesQueried);
   console.log("bathroomn filter is:", typeof bathroomsFilter);
@@ -70,7 +84,11 @@ function FilterView(props) {
   }, [housesQueried]);
 
   function greaterFilter(filter, house) {
-    if ((filter == "bathrooms") | (filter == "overall")) {
+    if (
+      (filter == "bathrooms") |
+      (filter == "overall") |
+      (filter == "fullBeds")
+    ) {
       console.log("Filter is bathgroom or ratings. Value is:", house[filter]);
       if (house[filter] >= eval(filter + "Filter")) {
         return true;
@@ -102,7 +120,7 @@ function FilterView(props) {
 
       <FilterSelector
         zIndex={4000}
-        items={[noFilter, "true", "false"]}
+        items={[noFilter, "quiet", "loud"]}
         icon={"hotel"}
         category={"quiet"}
         setFilter={setQuietFilter}
@@ -119,7 +137,7 @@ function FilterView(props) {
       <Text style={styles.inputLabel}>Overall Rating</Text>
 
       <FilterSelector
-        zIndex={2000}
+        zIndex={2500}
         items={[noFilter, 5, 4, 3, 2, 1]}
         icon={"star"}
         category={"overall"}
@@ -127,12 +145,68 @@ function FilterView(props) {
       />
       <Text style={styles.inputLabel}>Occupancy</Text>
       <FilterSelector
-        zIndex={1000}
+        zIndex={1500}
         items={[noFilter, 6, 5, 4, 3, 2]}
         icon={"person"}
         category={"occupancy"}
         setFilter={setOccupancyFilter}
       />
+      <Text style={styles.inputLabel}>Single or Multiple Units</Text>
+      <FilterSelector
+        zIndex={1200}
+        items={[noFilter, "Single Unit", "Multiple Units"]}
+        icon={"apartment"}
+        category={"multiple units"}
+        setFilter={setMultipleUnitsFilter}
+      />
+      <Text style={styles.inputLabel}>Number of Full Beds</Text>
+      <FilterSelector
+        zIndex={1100}
+        items={[noFilter, 6, 5, 4, 3, 2, 1]}
+        icon={"king-bed"}
+        category={"full beds"}
+        setFilter={setFullBedsFilter}
+      />
+      <View style={styles.madeBy}>
+        <Text>
+          Made By:{" "}
+          <Text
+            style={styles.linkText}
+            onPress={() =>
+              Linking.openURL("https://www.linkedin.com/in/isabel-armour-garb/")
+            }
+          >
+            Isabel Armour-Garb,
+          </Text>{" "}
+          <Text
+            style={styles.linkText}
+            onPress={() =>
+              Linking.openURL(
+                "https://www.linkedin.com/in/jack-canavan-gosselin/"
+              )
+            }
+          >
+            Jack Canavan-Gosselin,
+          </Text>{" "}
+          <Text
+            style={styles.linkText}
+            onPress={() => Linking.openURL("https://www.danielknopf.com")}
+          >
+            Daniel Knopf,
+          </Text>{" "}
+          and{" "}
+          <Text
+            style={styles.linkText}
+            onPress={() =>
+              Linking.openURL(
+                "https://www.linkedin.com/in/nalu-tripician-8b3691174/"
+              )
+            }
+          >
+            Nalu Tripician
+          </Text>
+        </Text>
+      </View>
       <View
         style={{
           paddingTop: 30,

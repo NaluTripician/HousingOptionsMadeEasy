@@ -171,13 +171,13 @@ return rp(url)
                  var bathroomNum = amenityDict[houseName]
 
 
-                 var multiUnit =  'single unit'
+                 var multiUnit =  'Single Unit'
                  var withD = new RegExp(' D| D,|D ')
                  var withC = new RegExp(' C| C,|C ')
                  var withB = new RegExp(' B| B,|B ')
                  var withA = new RegExp('.*A')
                  if (houseName.match(withA)){
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                  }
                  // if (houseName == '40 Home Ave'){
                  //     console.log("FOUND 40 HOME")
@@ -189,60 +189,60 @@ return rp(url)
                  var oneLoop = 1
                  if (amenities.text().match(withD)){
                      oneLoop = -1
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                      houseNameB = houseName + " B"
                      houseNameC = houseName + " C"
                      houseNameD = houseName + " D"
                      houseName = houseName + " A"
 
                      dbh.collection("houses").doc(houseNameD).set(
-                         {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameD, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                         {ammenities:{bathrooms:bathroomNum}, name: houseNameD, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                      .then(() => {
                          console.log("Document successfully written!");
                      })
                      dbh.collection("houses").doc(houseNameB).set(
-                        {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                        {ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                     .then(() => {
                         console.log("Document successfully written!");
                     })
                     dbh.collection("houses").doc(houseNameC).set(
-                       {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                       {ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                    .then(() => {
                        console.log("Document successfully written!");
                    })
                  }
                  if (amenities.text().match(withC) && oneLoop == 1){
                      oneLoop = -1
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                      houseNameB = houseName + " B"
                      houseNameC = houseName + " C"
                      houseName = houseName + " A"
 
                      dbh.collection("houses").doc(houseNameB).set(
-                        {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                        {ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                     .then(() => {
                         console.log("Document successfully written!");
                     })
                     dbh.collection("houses").doc(houseNameC).set(
-                       {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                       {numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                    .then(() => {
                        console.log("Document successfully written!");
                    })
                  }
                  if (amenities.text().match(withB) && oneLoop == 1){
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                      houseNameB = houseName + " B"
                      houseName = houseName + " A"
 
                      dbh.collection("houses").doc(houseNameB).set(
-                        {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                        {ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                     .then(() => {
                         console.log("Document successfully written!");
                     })
                  }
 
                  dbh.collection("houses").doc(houseName).set(
-                    {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseName, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                    {ammenities:{bathrooms:bathroomNum}, name: houseName, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                 .then(() => {
                     console.log("Document successfully written!");
                 })
