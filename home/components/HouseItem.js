@@ -7,6 +7,7 @@ import ValueField from "./ValueField";
 import styles from "./FilterView.style.js";
 import RateAttributes from "./RateAtributes";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import HouseDetailModal from "./HouseDetailModal";
 
 // import "firebase/firestore";
 
@@ -36,7 +37,7 @@ function HouseItem(props) {
           <View style={styles.fieldsContainer}>
             {Object.keys(house)
               .filter((key) => {
-                return key != "name";
+                return key != "name" && house[key] != "";
               })
               .map((key) => (
                 <View style={styles.fieldsView}>
@@ -46,27 +47,12 @@ function HouseItem(props) {
           </View>
         </Card>
       </Pressable>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={displayModal}
-        onRequestClose={() => {
-          setDisplayModal(!displayModal);
-        }}
-      >
-        <View style={styles.modalStyles}>
-          <Pressable
-            onPress={() => {
-              setDisplayModal(false);
-            }}
-            style={styles.modalClose}
-          >
-            <Icon name="close" color="#517fa4" size={30} />
-          </Pressable>
-          <RateAttributes name={house["name"]} />
-        </View>
-      </Modal>
-      {/* <HouseDetailModal displayModal={displayModal} /> */}
+
+      <HouseDetailModal
+        displayModal={displayModal}
+        setDisplayModal={setDisplayModal}
+        house={house}
+      />
     </>
   );
 }
