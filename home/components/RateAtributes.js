@@ -127,6 +127,7 @@ class RateAtributes extends Component {
               style={{ paddingVertical: 10 }}
               showRating
               onStartRating={(rating) => this.overallR(rating)}
+              ratingBackgroundColor="#ECEFF2"
               />
             <Text style={styles.instructions}>
               How good are the outdoor spaces?
@@ -137,6 +138,7 @@ class RateAtributes extends Component {
               style={{ paddingVertical: 10 }}
               showRating
               onStartRating={(rating) => this.outdoorSpaceR(rating)}
+              ratingBackgroundColor="#ECEFF2"
             />
             <Text style={styles.instructions}>
               How is the location of this house?
@@ -147,6 +149,7 @@ class RateAtributes extends Component {
               style={{ paddingVertical: 10 }}
               showRating
               onStartRating={(rating) => this.locationR(rating)}
+              ratingBackgroundColor="#ECEFF2"
             />
             <Text style={styles.instructions}>
               How nice is the kitchen?
@@ -157,6 +160,7 @@ class RateAtributes extends Component {
               style={{ paddingVertical: 10 }}
               showRating
               onStartRating={(rating) => this.kitchenR(rating)}
+              ratingBackgroundColor="#ECEFF2"
             />
             <Text style={styles.instructions}>
               How is good of a party venue is this house?
@@ -167,6 +171,7 @@ class RateAtributes extends Component {
               style={{ paddingVertical: 10 }}
               showRating
               onStartRating={(rating) => this.partyVenueR(rating)}
+              ratingBackgroundColor="#ECEFF2"
             />
             <TextInput style = {styles.input}
                placeholder = "Enter additional comments here"
