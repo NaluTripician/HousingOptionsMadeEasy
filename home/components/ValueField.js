@@ -43,7 +43,10 @@ function ValueField(props) {
         <Text style={styles.fieldTitle}>
           {myKey
             .replace("multipleUnits", "number of units")
-            .replace("numberOfReviews", "number of reviews")}
+            .replace("numberOfReviews", "number of reviews")
+            .replace("outdoorSpace", "outdoor space")
+            .replace("partyVenue", "party venue")
+            .replace("fullBeds", "number of full beds")}
         </Text>
         <Text>{props.house[myKey]}</Text>
       </View>

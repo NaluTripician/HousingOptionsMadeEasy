@@ -36,7 +36,7 @@ function HouseDetailModal(props) {
       </Modal>
     );
   } else {
-    return <></>;
+    return <View></View>;
   }
 }
 

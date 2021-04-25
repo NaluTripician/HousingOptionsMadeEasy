@@ -38,6 +38,10 @@ export default StyleSheet.create({
   linkText: {
     textDecorationLine: "underline",
   },
+  modalContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   modalStyles: {
     width: "100%",
     paddingHorizontal: 10,

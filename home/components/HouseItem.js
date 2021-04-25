@@ -29,7 +29,7 @@ function HouseItem(props) {
     <>
       <Pressable
         onPress={() => {
-          setDisplayModal(true);
+          setDisplayModal(!displayModal);
         }}
       >
         <Card containerStyle={styles.houseCard}>
@@ -56,12 +56,13 @@ function HouseItem(props) {
           </View>
         </Card>
       </Pressable>
-
-      <HouseDetailModal
-        displayModal={displayModal}
-        setDisplayModal={setDisplayModal}
-        house={house}
-      />
+      <View style={styles.modalContainer}>
+        <HouseDetailModal
+          displayModal={displayModal}
+          setDisplayModal={setDisplayModal}
+          house={house}
+        />
+      </View>
     </>
   );
 }
