@@ -171,13 +171,13 @@ return rp(url)
                  var bathroomNum = amenityDict[houseName]
 
 
-                 var multiUnit =  'single unit'
+                 var multiUnit =  'Single Unit'
                  var withD = new RegExp(' D| D,|D ')
                  var withC = new RegExp(' C| C,|C ')
                  var withB = new RegExp(' B| B,|B ')
                  var withA = new RegExp('.*A')
                  if (houseName.match(withA)){
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                  }
                  // if (houseName == '40 Home Ave'){
                  //     console.log("FOUND 40 HOME")
@@ -189,7 +189,7 @@ return rp(url)
                  var oneLoop = 1
                  if (amenities.text().match(withD)){
                      oneLoop = -1
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                      houseNameB = houseName + " B"
                      houseNameC = houseName + " C"
                      houseNameD = houseName + " D"
@@ -213,7 +213,7 @@ return rp(url)
                  }
                  if (amenities.text().match(withC) && oneLoop == 1){
                      oneLoop = -1
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                      houseNameB = houseName + " B"
                      houseNameC = houseName + " C"
                      houseName = houseName + " A"
@@ -230,7 +230,7 @@ return rp(url)
                    })
                  }
                  if (amenities.text().match(withB) && oneLoop == 1){
-                     multiUnit = "multiple units"
+                     multiUnit = "Multiple Units"
                      houseNameB = houseName + " B"
                      houseName = houseName + " A"
 
