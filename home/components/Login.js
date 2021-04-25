@@ -32,7 +32,7 @@ if (!firebase.apps.length) {
 function emailSignUp (email, password, setLoggedInStatus) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-
+        setLoggedInStatus(true);
     var user = userCredential.user;
     })
     .catch((error) => {
@@ -44,7 +44,7 @@ function emailSignUp (email, password, setLoggedInStatus) {
 function emailLogin (email, password, setLoggedInStatus) {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        
+        setLoggedInStatus(true);
     var user = userCredential.user;
     })
     .catch((error) => {
