@@ -5,12 +5,12 @@ import { styles } from "./styles";
 //import FilterView from "./components/FilterView";
 import Home from "./components/Home";
 import RateAtributes from "./components/RateAtributes";
-import Login from "./components/Login"
+import Login from "./components/Login";
 
 export default function App() {
   return (
     <View>
-      <Login />
+      <Home />
     </View>
   );
 }
