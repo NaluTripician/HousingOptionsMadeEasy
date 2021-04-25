@@ -9,7 +9,7 @@ import RateAtributes from './components/RateAtributes'
 export default function App() {
   return (
     <View>
-      <RateAtributes name='2 fountain'/>
+      <RateAtributes name='2 Fountain'/>
     </View>
   );
 }

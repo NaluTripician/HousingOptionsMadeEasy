@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Rating } from 'react-native-ratings';
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, SafeAreaView, TextInput} from "react-native";
 import {styles} from '../styles';
 import * as firebase from "firebase";
 import "firebase/firestore";
@@ -32,11 +32,11 @@ class RateAtributes extends Component {
       outdoorSpace: 0,
       location: 0,
       partyVenue: 0,
-      kitchen: 0
+      kitchen: 0,
+      comment: ""
     };
     this.name = name;
   }
-
   overallR(rating) {
     console.log("over")
     this.setState({
@@ -72,9 +72,12 @@ class RateAtributes extends Component {
     });
   }
 
-  printRating(rating){
-    console.log("Rating: " + rating)
+  setComment(comment){
+    console.log("text");
+    this.setState({comment: comment});
   }
+
+
 
   submitReview(){
     var house = dbh.collection('houses').doc(String(this.name['name']));
@@ -83,6 +86,7 @@ class RateAtributes extends Component {
     var loc = this.state.location;
     var party = this.state.partyVenue;
     var kitch = this.state.kitchen;
+    var comm = this.state.comment;
     house.get().then(function(doc) {
     if (doc.exists) {
       var oldRatings = doc.data()
@@ -94,6 +98,11 @@ class RateAtributes extends Component {
         kitchen: ((oldRatings["ratings"]["kitchen"] * oldRatings["ratings"]["numberOfReviews"]) + kitch)/(oldRatings["ratings"]["numberOfReviews"] +1),
         numberOfReviews: oldRatings["ratings"]["numberOfReviews"] +1
       }},{merge:true});
+      console.log(oldRatings["comments"])
+      var newArr = oldRatings["comments"];
+      newArr.push(comm)
+      console.log(newArr)
+      house.set({comments:newArr},{merge:true});
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
@@ -107,6 +116,7 @@ class RateAtributes extends Component {
 
   render() {
       return (
+        <SafeAreaView>
           <View>
             <Text style={styles.instructions}>
               Overall Rating.
@@ -158,12 +168,19 @@ class RateAtributes extends Component {
               showRating
               onStartRating={(rating) => this.partyVenueR(rating)}
             />
+            <Text style={styles.instructions}>
+
+            </Text>
+            <TextInput style = {styles.input}
+               placeholder = "Enter Comments"
+               onChangeText = {words => this.setComment(words)}/>
             <Button
               onPress={() => this.submitReview()}
               title="Submit Review"
               color="#9f0404"
             />
           </View>
+        </SafeAreaView>
         );
       }
   }
