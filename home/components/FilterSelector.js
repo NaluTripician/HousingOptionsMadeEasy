@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-import Icon from "react-native-vector-icons/Feather";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 function FilterSelector(props) {
   const [myDefault, setDefaultValue] = useState(props.items[0].toString());
@@ -10,7 +10,7 @@ function FilterSelector(props) {
     return {
       label: item.toString(),
       value: item,
-      icon: () => <Icon name="flag" size={18} color="#900" />,
+      icon: () => <Icon name={props.icon} size={18} color="#900" />,
     };
   });
   const category = props.category;

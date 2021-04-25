@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { Card } from "react-native-elements";
 import FilterSelector from "./FilterSelector";
 import ValueField from "./ValueField";
 // import * as firebase from "firebase";
@@ -20,15 +21,17 @@ function HouseItem(props) {
   );
 
   return (
-    <View>
+    <Card containerStyle={styles.houseCard}>
+      <Card.Title style={styles.cardTitle}>{house["name"]}</Card.Title>
       {Object.keys(house).map((key) => (
         <ValueField myKey={key} house={house} />
       ))}
+
       {/* <Text>{house["name"]}</Text>
       <Text>Bathrooms: {house["bathrooms"]}</Text>
       <Text>Overall rating: {house["ratings"]["overall"]}</Text>
       <Text>Images</Text> */}
-    </View>
+    </Card>
   );
 }
 

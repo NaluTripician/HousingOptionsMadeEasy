@@ -15,7 +15,9 @@ function ValueField(props) {
     "overall",
   ];
   console.log(props.myKey);
-  if (ratingsKeys.includes(props.myKey)) {
+  if (props.myKey == "name") {
+    return <View></View>;
+  } else if (ratingsKeys.includes(props.myKey)) {
     return (
       <View>
         <Text>{props.myKey}</Text>
