@@ -29,10 +29,10 @@ if (!firebase.apps.length) {
   firebase.app(); // if already initialized, use that one
 }
 
-function emailSignUp (email, password) {
+function emailSignUp (email, password, setLoggedInStatus) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        //something
+
     var user = userCredential.user;
     })
     .catch((error) => {
@@ -41,10 +41,10 @@ function emailSignUp (email, password) {
     })
 };
 
-function emailLogin (email, password) {
+function emailLogin (email, password, setLoggedInStatus) {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        console.log("peepee")
+        
     var user = userCredential.user;
     })
     .catch((error) => {
@@ -53,7 +53,7 @@ function emailLogin (email, password) {
     })
 };
 
-export default function Login(){
+export default function Login(props){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [page, setPage] = useState("main")
@@ -105,7 +105,7 @@ export default function Login(){
                     <Text style={styles.forgot_button}>Forgot Password?</Text>
                 </TouchableOpacity>
 
-                <Pressable style={styles.loginBtn} onPress={() => emailLogin(email, password)}>
+                <Pressable style={styles.loginBtn} onPress={() => emailLogin(email, password, props.setLoggedInStatus)}>
                     <Text style={styles.loginText}>LOGIN</Text>
                 </Pressable>
             </View>
@@ -136,7 +136,7 @@ export default function Login(){
                 />
                 </View>
 
-                <Pressable style={styles.loginBtn} onPress={() => emailSignUp(email, password)}>
+                <Pressable style={styles.loginBtn} onPress={() => emailSignUp(email, password, props.setLoggedInStatus)}>
                     <Text style={styles.loginText}>SIGN UP</Text>
                 </Pressable>
             </View>
