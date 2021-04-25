@@ -196,17 +196,17 @@ return rp(url)
                      houseName = houseName + " A"
 
                      dbh.collection("houses").doc(houseNameD).set(
-                         {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameD, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                         {ammenities:{bathrooms:bathroomNum}, name: houseNameD, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                      .then(() => {
                          console.log("Document successfully written!");
                      })
                      dbh.collection("houses").doc(houseNameB).set(
-                        {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                        {ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                     .then(() => {
                         console.log("Document successfully written!");
                     })
                     dbh.collection("houses").doc(houseNameC).set(
-                       {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                       {ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                    .then(() => {
                        console.log("Document successfully written!");
                    })
@@ -219,12 +219,12 @@ return rp(url)
                      houseName = houseName + " A"
 
                      dbh.collection("houses").doc(houseNameB).set(
-                        {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                        {ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                     .then(() => {
                         console.log("Document successfully written!");
                     })
                     dbh.collection("houses").doc(houseNameC).set(
-                       {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                       {numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameC, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                    .then(() => {
                        console.log("Document successfully written!");
                    })
@@ -235,14 +235,14 @@ return rp(url)
                      houseName = houseName + " A"
 
                      dbh.collection("houses").doc(houseNameB).set(
-                        {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                        {ammenities:{bathrooms:bathroomNum}, name: houseNameB, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                     .then(() => {
                         console.log("Document successfully written!");
                     })
                  }
 
                  dbh.collection("houses").doc(houseName).set(
-                    {occupancy: numBeds, ammenities:{bathrooms:bathroomNum}, name: houseName, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
+                    {ammenities:{bathrooms:bathroomNum}, name: houseName, multipleUnits:multiUnit, location:{street: streetName, quiet: quietBool}},{ merge: true })
                 .then(() => {
                     console.log("Document successfully written!");
                 })
