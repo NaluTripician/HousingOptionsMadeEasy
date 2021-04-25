@@ -41,6 +41,7 @@ export default StyleSheet.create({
   modalContainer: {
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
   },
   modalStyles: {
     width: "100%",

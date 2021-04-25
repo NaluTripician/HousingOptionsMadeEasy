@@ -26,7 +26,14 @@ function ValueField(props) {
   } else if (ratingsKeys.includes(myKey)) {
     return (
       <View>
-        <Text style={styles.fieldTitle}>{myKey}</Text>
+        <Text style={styles.fieldTitle}>
+          {myKey
+            .replace("multipleUnits", "number of units")
+            .replace("numberOfReviews", "number of reviews")
+            .replace("outdoorSpace", "outdoor space")
+            .replace("partyVenue", "party venue")
+            .replace("fullBeds", "number of full beds")}
+        </Text>
         <Rating
           style={styles.rating}
           readonly={true}

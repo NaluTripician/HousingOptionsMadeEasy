@@ -244,6 +244,15 @@ function FilterView(props) {
           );
           var isTrue = true;
           for (const filter of { filters }["filters"]) {
+            // console.log("AAAA", eval(filter + "Filter"));
+            var myRegex = new RegExp(eval(filter + "Filter"));
+            // const filterContent = toString(house[filter]);
+            // console.log(
+            //   "filtercontent is:",
+            //   filterContent,
+            //   "and eval filter is:",
+            //   eval(filter + "Filter")
+            // );
             isTrue =
               isTrue &&
               (house[filter] == eval(filter + "Filter")) |
