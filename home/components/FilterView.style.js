@@ -61,4 +61,8 @@ export default StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
   },
+  rating: {
+    paddingHorizontal: 0,
+    marginHorizontal: 0,
+  },
 });

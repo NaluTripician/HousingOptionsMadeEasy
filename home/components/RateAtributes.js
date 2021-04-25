@@ -72,7 +72,7 @@ class RateAtributes extends Component {
   }
 
   setComment(comment) {
-    console.log("text");
+    console.log("text AHH");
     this.setState({ comment: comment });
   }
 

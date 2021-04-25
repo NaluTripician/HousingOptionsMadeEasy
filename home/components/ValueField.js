@@ -27,8 +27,8 @@ function ValueField(props) {
     return (
       <View>
         <Text style={styles.fieldTitle}>{myKey}</Text>
-        <Text>{props.house[myKey]}</Text>
         <Rating
+          style={styles.rating}
           readonly={true}
           startingValue={props.house[myKey]}
           name={props.house["name"]}
