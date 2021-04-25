@@ -139,6 +139,7 @@ class RateAtributes extends Component {
   }
 
   render() {
+<<<<<<< Updated upstream
     return (
       <SafeAreaView>
         <View>
@@ -196,6 +197,73 @@ class RateAtributes extends Component {
         </View>
       </SafeAreaView>
     );
+=======
+      return (
+        <SafeAreaView>
+          <View>
+            <Text style={styles.instructions}>
+              Overall Rating.
+            </Text>
+            <Rating
+              startingValue={0}
+              fractions={1}
+              style={{ paddingVertical: 10 }}
+              showRating
+              onStartRating={(rating) => this.overallR(rating)}
+              />
+            <Text style={styles.instructions}>
+              Outdoor Space Rating.
+            </Text>
+            <Rating
+              startingValue={0}
+              fractions={1}
+              style={{ paddingVertical: 10 }}
+              showRating
+              onStartRating={(rating) => this.outdoorSpaceR(rating)}
+            />
+            <Text style={styles.instructions}>
+              Location Rating.
+            </Text>
+            <Rating
+              startingValue={0}
+              fractions={1}
+              style={{ paddingVertical: 10 }}
+              showRating
+              onStartRating={(rating) => this.locationR(rating)}
+            />
+            <Text style={styles.instructions}>
+              Kitchen Rating.
+            </Text>
+            <Rating
+              startingValue={0}
+              fractions={1}
+              style={{ paddingVertical: 10 }}
+              showRating
+              onStartRating={(rating) => this.kitchenR(rating)}
+            />
+            <Text style={styles.instructions}>
+              Party Venue Rating.
+            </Text>
+            <Rating
+              startingValue={0}
+              fractions={1}
+              style={{ paddingVertical: 10 }}
+              showRating
+              onStartRating={(rating) => this.partyVenueR(rating)}
+            />
+            <TextInput style = {styles.input}
+               placeholder = "Enter Comments"
+               onChangeText = {words => this.setComment(words)}/>
+            <Button
+              onPress={() => this.submitReview()}
+              title="Submit Review"
+              color="#9f0404"
+            />
+          </View>
+        </SafeAreaView>
+        );
+      }
+>>>>>>> Stashed changes
   }
 }
 
