@@ -4,7 +4,7 @@ import { getPendingResultAsync } from "expo-image-picker";
 export default StyleSheet.create({
   container: {
     backgroundColor: "#ECEFF2",
-    paddingTop: 70,
+    paddingVertical: 70,
     paddingHorizontal: 25,
     height: "100%",
     // alignItems: "center",
@@ -29,5 +29,22 @@ export default StyleSheet.create({
     fontWeight: "500",
     paddingVertical: 10,
     fontSize: 20,
+  },
+  madeBy: {
+    paddingTop: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  linkText: {
+    textDecorationLine: "underline",
+  },
+  modalStyles: {
+    paddingHorizontal: 10,
+    paddingTop: 40,
+    backgroundColor: "white",
+    height: "100%",
+  },
+  modalClose: {
+    alignItems: "flex-end",
   },
 });

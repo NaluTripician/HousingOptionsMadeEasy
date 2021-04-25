@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 function FilterSelector(props) {
   const [myDefault, setDefaultValue] = useState(props.items[0].toString());
+  const [zInverse, setZInverse] = useState(6000);
   //   {label: item, value: item, icon: () => <Icon name="flag" size={18} color="#900" />}
   const items = props.items.map((item) => {
     return {
@@ -21,9 +22,16 @@ function FilterSelector(props) {
     <DropDownPicker
       items={items}
       zIndex={props.zIndex}
+      zIndexInverse={zInverse}
       defaultValue={myDefault}
       placeholder={category}
       containerStyle={{ height: 40 }}
+      onOpen={() => {
+        setZInverse(6000);
+      }}
+      onClose={() => {
+        setZInverse(100);
+      }}
       style={{
         backgroundColor: "#fafafa",
         borderTopLeftRadius: 10,
@@ -34,7 +42,7 @@ function FilterSelector(props) {
       itemStyle={{
         justifyContent: "flex-start",
       }}
-      dropDownMaxHeight={200}
+      dropDownMaxHeight={165}
       dropDownStyle={{ backgroundColor: "#fafafa" }}
       onChangeItem={(item) => {
         props.setFilter(item.value);
