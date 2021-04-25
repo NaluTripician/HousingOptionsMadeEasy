@@ -44,7 +44,7 @@ function emailSignUp (email, password) {
 function emailLogin (email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        //something
+        console.log("peepee")
     var user = userCredential.user;
     })
     .catch((error) => {
@@ -53,105 +53,97 @@ function emailLogin (email, password) {
     })
 };
 
-export default function Login() {
+export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [page, setPage] = useState("main")
 
-    return (
-        <SafeAreaView>
-        <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/home_logo.png")} />
-            <StatusBar style="auto" />
+    if(page === 'main') {
+        return (
+            <SafeAreaView>
+            <View style={styles.container}>
+                <Image style={styles.image} source={require("../assets/home_logo.png")} />
+                <StatusBar style="auto" />
 
-            <Pressable style={styles.loginBtn} onPress={() => LoginScreen("")}>
-                <Text style={styles.loginText}>LOGIN</Text>
-            </Pressable>
+                <Pressable style={styles.loginBtn} onPress={page => setPage("login")}>
+                    <Text style={styles.loginText}>LOGIN</Text>
+                </Pressable>
 
-            <Pressable style={styles.loginBtn} onPress={() => SignupScreen("")}>
-                <Text style={styles.loginText}>SIGN UP</Text>
-            </Pressable>
+                <Pressable style={styles.loginBtn} onPress={page => setPage("signup")}>
+                    <Text style={styles.loginText}>SIGN UP</Text>
+                </Pressable>
 
-        </View>
-        </SafeAreaView>
-    );
+            </View>
+            </SafeAreaView>
+        );
+    } else if(page === 'login') {
+        return (
+            <SafeAreaView>
+            <View style={styles.container}>
+                <Image style={styles.image} source={require("../assets/home_logo.png")} />
+                <StatusBar style="auto" />
+                <View style={styles.inputView}>
+                <TextInput
+                    style={styles.TextInput}
+                    placeholder="Email."
+                    placeholderTextColor="#003f5c"
+                    onChangeText={email => setEmail(email)}
+                />
+                </View>
+
+                <View style={styles.inputView}>
+                <TextInput
+                    style={styles.TextInput}
+                    placeholder="Password."
+                    placeholderTextColor="#003f5c"
+                    secureTextEntry={true}
+                    onChangeText={password => setPassword(password)}
+                />
+                </View>
+
+                <TouchableOpacity>
+                    <Text style={styles.forgot_button}>Forgot Password?</Text>
+                </TouchableOpacity>
+
+                <Pressable style={styles.loginBtn} onPress={() => emailLogin(email, password)}>
+                    <Text style={styles.loginText}>LOGIN</Text>
+                </Pressable>
+            </View>
+            </SafeAreaView>
+        );
+    } else {
+        return (
+            <SafeAreaView>
+            <View style={styles.container}>
+                <Image style={styles.image} source={require("../assets/icon.png")} />
+                <StatusBar style="auto" />
+                <View style={styles.inputView}>
+                <TextInput
+                    style={styles.TextInput}
+                    placeholder="Email."
+                    placeholderTextColor="#003f5c"
+                    onChangeText={email => setEmail(email)}
+                />
+                </View>
+
+                <View style={styles.inputView}>
+                <TextInput
+                    style={styles.TextInput}
+                    placeholder="Password."
+                    placeholderTextColor="#003f5c"
+                    secureTextEntry={true}
+                    onChangeText={password => setPassword(password)}
+                />
+                </View>
+
+                <Pressable style={styles.loginBtn} onPress={() => emailSignUp(email, password)}>
+                    <Text style={styles.loginText}>SIGN UP</Text>
+                </Pressable>
+            </View>
+            </SafeAreaView>
+        );
+    }
 }
-
-function LoginScreen(props) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    return (
-        <SafeAreaView>
-        <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/home_logo.png")} />
-            <StatusBar style="auto" />
-            <View style={styles.inputView}>
-            <TextInput
-                style={styles.TextInput}
-                placeholder="Email."
-                placeholderTextColor="#003f5c"
-                onChangeText={email => setEmail(email)}
-            />
-            </View>
-
-            <View style={styles.inputView}>
-            <TextInput
-                style={styles.TextInput}
-                placeholder="Password."
-                placeholderTextColor="#003f5c"
-                secureTextEntry={true}
-                onChangeText={password => setPassword(password)}
-            />
-            </View>
-
-            <TouchableOpacity>
-                <Text style={styles.forgot_button}>Forgot Password?</Text>
-            </TouchableOpacity>
-
-            <Pressable style={styles.loginBtn} onPress={() => emailSignUp(email, password)}>
-                <Text style={styles.loginText}>LOGIN</Text>
-            </Pressable>
-        </View>
-        </SafeAreaView>
-);
-}
-
-function SignupScreen(props) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    console.log("signup")
-    return (
-        <SafeAreaView>
-        <View style={styles.container}>
-            <Image style={styles.image} source={require("../assets/icon.png")} />
-            <StatusBar style="auto" />
-            <View style={styles.inputView}>
-            <TextInput
-                style={styles.TextInput}
-                placeholder="Email."
-                placeholderTextColor="#003f5c"
-                onChangeText={email => setEmail(email)}
-            />
-            </View>
-
-            <View style={styles.inputView}>
-            <TextInput
-                style={styles.TextInput}
-                placeholder="Password."
-                placeholderTextColor="#003f5c"
-                secureTextEntry={true}
-                onChangeText={password => setPassword(password)}
-            />
-            </View>
-
-            <Pressable style={styles.loginBtn} onPress={() => emailSignUp(email, password)}>
-                <Text style={styles.loginText}>SIGN UP</Text>
-            </Pressable>
-        </View>
-        </SafeAreaView>
-);
-}
-
 
 const styles = StyleSheet.create({
     container: {
