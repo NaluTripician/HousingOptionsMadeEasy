@@ -33,9 +33,17 @@ function HouseItem(props) {
       >
         <Card containerStyle={styles.houseCard}>
           <Card.Title style={styles.cardTitle}>{house["name"]}</Card.Title>
-          {Object.keys(house).map((key) => (
-            <ValueField myKey={key} house={house} />
-          ))}
+          <View style={styles.fieldsContainer}>
+            {Object.keys(house)
+              .filter((key) => {
+                return key != "name";
+              })
+              .map((key) => (
+                <View style={styles.fieldsView}>
+                  <ValueField myKey={key} house={house} />
+                </View>
+              ))}
+          </View>
         </Card>
       </Pressable>
       <Modal

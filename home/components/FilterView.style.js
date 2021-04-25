@@ -47,4 +47,18 @@ export default StyleSheet.create({
   modalClose: {
     alignItems: "flex-end",
   },
+  fieldTitle: {
+    fontWeight: "700",
+    fontSize: 15,
+    color: "#363636",
+  },
+  fieldsView: {
+    flex: 1,
+    minWidth: "30%",
+    paddingHorizontal: 5,
+  },
+  fieldsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
 });
