@@ -7,6 +7,9 @@ import styles from "./FilterView.style.js";
 // import "firebase/firestore";
 
 function ValueField(props) {
+  function Capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   var ratingsKeys = [
     "location",
     "kitchen",
@@ -27,12 +30,12 @@ function ValueField(props) {
     return (
       <View>
         <Text style={styles.fieldTitle}>
-          {myKey
-            .replace("multipleUnits", "number of units")
-            .replace("numberOfReviews", "number of reviews")
-            .replace("outdoorSpace", "outdoor space")
-            .replace("partyVenue", "party venue")
-            .replace("fullBeds", "number of full beds")}
+          {Capitalize(
+            myKey
+              .replace("numberOfReviews", "Number of Reviews")
+              .replace("outdoorSpace", "Outdoor Space")
+              .replace("partyVenue", "Party Venue")
+          )}
         </Text>
         <Rating
           style={styles.rating}
@@ -48,12 +51,13 @@ function ValueField(props) {
     return (
       <View>
         <Text style={styles.fieldTitle}>
-          {myKey
-            .replace("multipleUnits", "number of units")
-            .replace("numberOfReviews", "number of reviews")
-            .replace("outdoorSpace", "outdoor space")
-            .replace("partyVenue", "party venue")
-            .replace("fullBeds", "number of full beds")}
+          {Capitalize(
+            myKey
+              .replace("multipleUnits", "Number of Units")
+              .replace("numberOfReviews", "Number of Reviews")
+              .replace("fullBeds", "Number of Full Beds")
+              .replace("quiet", "Quiet or Loud Street")
+          )}
         </Text>
         <Text>{props.house[myKey]}</Text>
       </View>

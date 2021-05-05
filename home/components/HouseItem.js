@@ -33,7 +33,7 @@ function HouseItem(props) {
         }}
       >
         <Card containerStyle={styles.houseCard}>
-          <View styles={styles.editIcon}>
+          <View style={styles.editIcon}>
             <Icon
               styles={styles.editIcon}
               name="edit"

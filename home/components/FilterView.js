@@ -6,6 +6,7 @@ import {
   ScrollView,
   Linking,
   Image,
+  Platform,
 } from "react-native";
 import FilterSelector from "./FilterSelector";
 // import * as firebase from "firebase";

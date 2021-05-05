@@ -23,6 +23,7 @@
     "react-native-dropdown-picker": "^4.0.9",
     "react-native-elements": "^3.4.0",
     "react-native-expandable-card": "^1.0.3",
+    "react-native-media-query": "^1.0.6",
     "react-native-ratings": "^8.0.3",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12"

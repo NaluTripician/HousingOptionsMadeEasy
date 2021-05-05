@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { getPendingResultAsync } from "expo-image-picker";
 
 export default StyleSheet.create({
@@ -7,8 +7,11 @@ export default StyleSheet.create({
     paddingVertical: 70,
     paddingHorizontal: 25,
     height: "100%",
-    // alignItems: "center",
-    // justifyContent: "center",
+    ...Platform.select({
+      web: {
+        // paddingHorizontal: "5rem",
+      },
+    }),
   },
   houseCard: {
     borderRadius: 10,
