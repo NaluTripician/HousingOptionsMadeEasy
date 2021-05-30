@@ -58,17 +58,23 @@ function FilterView(props) {
   ];
   var houseList = [];
   var streets = [
-    "Home",
-    "Fountain",
-    "Church",
-    "Warren",
-    "Pine",
-    "Lawn",
     "Brainerd",
-    "Cross",
+    "Church",
     "College",
-    "Sesame",
+    "Court",
+    "Cross",
+    "Fountain",
+    "High",
+    "Home",
+    "Knowles",
+    "Lawn",
     "Miles",
+    "Pearl",
+    "Pine",
+    "Vine",
+    "Sesame",
+    "Warren",
+    "Williams",
   ];
   console.log("houses queried is:", housesQueried);
   console.log("bathroomn filter is:", typeof bathroomsFilter);
@@ -110,6 +116,7 @@ function FilterView(props) {
   }
 
   console.log("houses is:", houses);
+  console.log("HELLO");
   console.log(
     "house filter is:",
     houses.filter((house) => house["bathrooms"] == bathroomsFilter)

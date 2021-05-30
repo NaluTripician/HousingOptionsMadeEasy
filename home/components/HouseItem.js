@@ -25,6 +25,13 @@ function HouseItem(props) {
     })(house)
   );
 
+  const ordered = Object.keys(house)
+    .sort()
+    .reduce((obj, key) => {
+      obj[key] = house[key];
+      return obj;
+    }, {});
+
   return (
     <>
       <Pressable
@@ -44,7 +51,8 @@ function HouseItem(props) {
           <Card.Title style={styles.cardTitle}>{house["name"]}</Card.Title>
 
           <View style={styles.fieldsContainer}>
-            {Object.keys(house)
+            {/* {Object.keys(house) */}
+            {Object.keys(ordered)
               .filter((key) => {
                 return key != "name" && house[key] != "";
               })
