@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Pressable, Modal } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Modal,
+  ScrollView,
+} from "react-native";
 import { Card } from "react-native-elements";
 import FilterSelector from "./FilterSelector";
 import ValueField from "./ValueField";
@@ -19,7 +26,7 @@ function HouseDetailModal(props) {
           props.setDisplayModal(false);
         }}
       >
-        <View style={styles.modalStyles}>
+        <ScrollView style={styles.modalStyles}>
           <Pressable
             onPress={() => {
               props.setDisplayModal(false);
@@ -32,7 +39,7 @@ function HouseDetailModal(props) {
             setDisplayModal={props.setDisplayModal}
             name={props.house["name"]}
           />
-        </View>
+        </ScrollView>
       </Modal>
     );
   } else {

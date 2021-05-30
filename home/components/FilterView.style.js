@@ -94,4 +94,8 @@ export default StyleSheet.create({
   editIcon: {
     alignItems: "flex-end",
   },
+  image: {
+    width: 100,
+    height: 100,
+  },
 });

@@ -129,53 +129,44 @@ function FilterView(props) {
           source={require("../assets/HOME-logo.png")}
         />
       </View>
-
-      <Text style={styles.inputLabel}>Number of Bathrooms</Text>
-      <FilterSelector
-        zIndex={5000}
-        items={[noFilter, 3, 2, 1]}
-        icon={"bathtub"}
-        category={"bathrooms"}
-        setFilter={setBathroomsFilter}
-      />
-      <Text style={styles.inputLabel}>Quiet or Loud Street</Text>
-
-      <FilterSelector
-        zIndex={4000}
-        items={[noFilter, "quiet", "loud"]}
-        icon={"hotel"}
-        category={"quiet"}
-        setFilter={setQuietFilter}
-      />
-      <Text style={styles.inputLabel}>Street</Text>
-
-      <FilterSelector
-        zIndex={3000}
-        items={[noFilter, ...streets]}
-        icon={"house"}
-        category={"street"}
-        setFilter={setStreetFilter}
-      />
-      <Text style={styles.inputLabel}>Overall Rating</Text>
-
-      <FilterSelector
-        zIndex={2500}
-        items={[noFilter, 5, 4, 3, 2, 1]}
-        icon={"star"}
-        category={"overall"}
-        setFilter={setOverallFilter}
-      />
       <Text style={styles.inputLabel}>Occupancy</Text>
       <FilterSelector
-        zIndex={1500}
+        zIndex={5000}
         items={[noFilter, 6, 5, 4, 3, 2]}
         icon={"person"}
         category={"occupancy"}
         setFilter={setOccupancyFilter}
       />
+      <Text style={styles.inputLabel}>Street</Text>
+
+      <FilterSelector
+        zIndex={4000}
+        items={[noFilter, ...streets]}
+        icon={"house"}
+        category={"street"}
+        setFilter={setStreetFilter}
+      />
+      <Text style={styles.inputLabel}>Quiet or Loud Street</Text>
+
+      <FilterSelector
+        zIndex={3000}
+        items={[noFilter, "quiet", "loud"]}
+        icon={"hotel"}
+        category={"quiet"}
+        setFilter={setQuietFilter}
+      />
+
+      <Text style={styles.inputLabel}>Number of Bathrooms</Text>
+      <FilterSelector
+        zIndex={2000}
+        items={[noFilter, 3, 2, 1]}
+        icon={"bathtub"}
+        category={"bathrooms"}
+        setFilter={setBathroomsFilter}
+      />
       <Text style={styles.inputLabel}>Single or Multiple Units</Text>
       <FilterSelector
-        zIndex={1200}
+        zIndex={1500}
         items={[noFilter, "Single Unit", "Multiple Units"]}
         icon={"apartment"}
         category={"multiple units"}
@@ -183,12 +174,21 @@ function FilterView(props) {
       />
       <Text style={styles.inputLabel}>Number of Full Beds</Text>
       <FilterSelector
-        zIndex={1100}
+        zIndex={1200}
         items={[noFilter, 6, 5, 4, 3, 2, 1]}
         icon={"king-bed"}
         category={"full beds"}
         setFilter={setFullBedsFilter}
       />
+      <Text style={styles.inputLabel}>Overall Rating</Text>
+      <FilterSelector
+        zIndex={1100}
+        items={[noFilter, 5, 4, 3, 2, 1]}
+        icon={"star"}
+        category={"overall"}
+        setFilter={setOverallFilter}
+      />
+
       <View style={styles.madeBy}>
         <Text>
           Made By:{" "}
