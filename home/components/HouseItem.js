@@ -46,7 +46,7 @@ function HouseItem(props) {
     console.log(" GOT INTO DOWNLOAD VIA URL");
     const storageRef = firebase.storage().ref();
     storageRef
-      .child(house["name"].replace(/\s/g, "_") + ".jpeg")
+      .child(house["name"].replace(/\s/g, "_") + "/" + "thumbnail.jpeg")
       .getDownloadURL()
       .then((url) => {
         setDownloadUrl(url);
