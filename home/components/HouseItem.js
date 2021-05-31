@@ -10,9 +10,14 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import HouseDetailModal from "./HouseDetailModal";
 import firebase from "firebase/app";
 import "firebase/storage";
+import { FIREBASE_API_KEY } from "@env";
+// import "dotenv/config";
+// apiKey: process.env.DB.FIREBASE_API_KEY,
+
+// console.log("API KEY IS:", process.env.DB.FIREBASE_API_KEY);
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBebWuH7osJsfklBZvzzaAPP-Eh5M0Dhdo",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "housingoptionsmadeeasy.firebaseapp.com",
   projectId: "housingoptionsmadeeasy",
   storageBucket: "housingoptionsmadeeasy.appspot.com",
@@ -43,6 +48,7 @@ function HouseItem(props) {
   );
 
   function downloadViaUrl() {
+    //Get the download url for the thumbnail image
     console.log(" GOT INTO DOWNLOAD VIA URL");
     const storageRef = firebase.storage().ref();
     storageRef
@@ -53,7 +59,6 @@ function HouseItem(props) {
       })
       .catch((error) => {
         setDownloadUrl("");
-        // Handle any errors
       });
   }
 

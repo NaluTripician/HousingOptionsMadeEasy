@@ -14,11 +14,12 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import styles from "./FilterView.style.js";
 import HouseItem from "./HouseItem";
+import { FIREBASE_API_KEY } from "@env";
 
 // import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBebWuH7osJsfklBZvzzaAPP-Eh5M0Dhdo",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "housingoptionsmadeeasy.firebaseapp.com",
   projectId: "housingoptionsmadeeasy",
   storageBucket: "housingoptionsmadeeasy.appspot.com",

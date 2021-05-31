@@ -4,9 +4,10 @@ import { Text, View, Button, SafeAreaView, TextInput } from "react-native";
 import { styles } from "../styles";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import { FIREBASE_API_KEY } from "@env";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBebWuH7osJsfklBZvzzaAPP-Eh5M0Dhdo",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "housingoptionsmadeeasy.firebaseapp.com",
   projectId: "housingoptionsmadeeasy",
   storageBucket: "housingoptionsmadeeasy.appspot.com",
@@ -123,7 +124,7 @@ class RateAtributes extends Component {
             },
             { merge: true }
           );
-          if(comm != ""){
+          if (comm != "") {
             console.log(oldRatings["comments"]);
             var newArr = oldRatings["comments"];
             newArr.push(comm);

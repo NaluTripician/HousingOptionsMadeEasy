@@ -2,9 +2,10 @@ import React from "react";
 import { Text, View } from "react-native";
 import * as firebase from "firebase";
 import "firebase/firestore";
+import { FIREBASE_API_KEY } from "@env";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBebWuH7osJsfklBZvzzaAPP-Eh5M0Dhdo",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "housingoptionsmadeeasy.firebaseapp.com",
   projectId: "housingoptionsmadeeasy",
   storageBucket: "housingoptionsmadeeasy.appspot.com",
